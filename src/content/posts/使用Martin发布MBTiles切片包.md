@@ -1,5 +1,5 @@
 ---
-title: 2024-第8期  | 使用Martin发布MBTiles地图切片包
+title: MapLibre/Martin | 使用Martin发布MBTiles地图切片包
 pubDate: 2024-07-2
 categories: ["GIS", "MARTIN", "MBTILES"]
 description: "新手向|使用Martin发布MBTiles地图切片包"
