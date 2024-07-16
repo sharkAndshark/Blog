@@ -59,6 +59,8 @@ CREATE TABLE metadata (name text, value text);
 | 栅格                                   | 😄      | 😄      | 😄                                          | 😄                           |
 | 开源社区生态                           | 😄      | 😄      | 🥶                                          | 😄                           |
 
+PS: 可以使用[Navicat](可以试用)、[DBeaver](https://dbeaver.io/)(有社区版，开源免费)等数据库管理软件打开 MBTiles 文件，直接查看其内部表结构，加深对 MBTiles 文件格式的理解。也可以试用[QGIS](https://qgis.org/)加载切片数据，查看地图。
+
 ## 开始实验(WINDOWS)
 
 本实验用到的所有内容地址：https://gitee.com/mapnote/blog_demo_data 。
