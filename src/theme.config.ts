@@ -6,7 +6,7 @@ export const THEME_CONFIG: App.Locals['config'] = {
   /** website description */
   desc: "FOSS4G爱好者",
   /** your deployed domain */
-  website: "guide.maper.xyz",
+  website: "https://guide.maper.xyz",
   /** your locale */
   locale: "en-us",
   /** theme style */
