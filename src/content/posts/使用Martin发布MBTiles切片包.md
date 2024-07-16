@@ -14,6 +14,37 @@ description: "新手向|使用Martin发布MBTiles地图切片包"
 [MBTiles](https://github.com/mapbox/mbtiles-spec) 是个`sqlite`文件。截至本文写作时，最新标准是[1.3](https://github.com/mapbox/mbtiles-spec/blob/master/1.3/spec.md).
 `MBTIles`利用了数据库的索引机制，避免相同内容的切片重复占用空间，同时也有了 `SQLITE` 数据库单文件的优点，非常方便传输与利用。
 
+### Tiles
+
+```sql
+CREATE TABLE tiles (
+    zoom_level  INTEGER, -- Z
+    tile_column INTEGER, -- Y
+    tile_row    INTEGER, -- X
+    tile_data   BLOB);   -- 切片数据
+
+CREATE UNIQUE INDEX tile_index on tiles (
+    zoom_level, tile_column, tile_row);
+```
+
+### Metadata
+
+```sql
+CREATE TABLE metadata (name text, value text);
+```
+
+- name
+- format
+- bounds
+- center
+- minzoom
+- maxzoom
+- attribution
+- description
+- type
+- version
+- json
+
 ## 为什么使用 MBTiles
 
 - 单文件，就是爽（对比下 ArcGIS 生成的 [Bundles](https://github.com/Esri/raster-tiles-compactcache)中无数个小切片文件...🥶)
