@@ -1,6 +1,6 @@
 ---
 title: MapLibre/Martin | 使用Martin发布MBTiles地图切片包
-pubDate: 2024-07-2
+pubDate: 2024-07-16
 categories: ["GIS", "MARTIN", "MBTILES"]
 description: "新手向|使用Martin发布MBTiles地图切片包"
 ---
@@ -11,10 +11,10 @@ description: "新手向|使用Martin发布MBTiles地图切片包"
 
 ## 什么是 MBTiles
 
-[MBTiles](https://github.com/mapbox/mbtiles-spec) 是个`sqlite`文件。截至本文写作时，最新标准是[1.3](https://github.com/mapbox/mbtiles-spec/blob/master/1.3/spec.md).
+[MBTiles](https://github.com/mapbox/mbtiles-spec) 是个`sqlite`文件，也就是说`MBTiles`文件是个单文件数据库。截至本文写作时，最新标准是[1.3](https://github.com/mapbox/mbtiles-spec/blob/master/1.3/spec.md).
 `MBTIles`利用了数据库的索引机制，避免相同内容的切片重复占用空间，同时也有了 `SQLITE` 数据库单文件的优点，非常方便传输与利用。
 
-### Tiles
+**Tiles 表**
 
 ```sql
 CREATE TABLE tiles (
@@ -27,11 +27,13 @@ CREATE UNIQUE INDEX tile_index on tiles (
     zoom_level, tile_column, tile_row);
 ```
 
-### Metadata
+***Metadata 表***
 
 ```sql
 CREATE TABLE metadata (name text, value text);
 ```
+
+**元信息字段**
 
 - name
 - format
@@ -73,7 +75,7 @@ PS: 可以使用[Navicat](可以试用)、[DBeaver](https://dbeaver.io/)(有社�
 ## 发布服务
 
 1. 新建文件夹: `martin_demo`
-2. 将 w`orld_cities.mbtiles` 放到 `martin_demo` 文件夹中
+2. 将 `world_cities.mbtiles` 放到 `martin_demo` 文件夹中
 3. 将 `martin.exe` 放到 `martin_demo` 文件夹中
 4. 按住 SHIFT 键不放，在文件夹内右击，点击“在此处打开 `Powershell` 窗口
 5. 在 Powershell 窗口内输入`.\martin.exe .\world_cities.mbtiles`
